@@ -45,7 +45,7 @@ then
 		exit 999
 	fi
 	
-	numfiles=$(ls -l | wc -l) #counts the number
+	numfiles=$(ls -l | wc -l) #counts the number of files in the directory
 	rm *
 	echo "$1 cleared"
 		
