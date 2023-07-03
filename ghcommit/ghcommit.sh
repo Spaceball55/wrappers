@@ -16,7 +16,6 @@
 
 # Usage: call this in the directory for the repo you are committing to. 
 
-set -x
 
 function ghcommit() {
 
@@ -25,7 +24,7 @@ git add .
 # check to see if we already have entered a commit message
 if [ ${#} -gt 0 ]; then
 	read -p "Enter commit message: " msg
-	git commit -m $msg
+	git commit -m msg
 
 else 
 	git commit -m "$@"
