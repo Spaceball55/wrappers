@@ -31,7 +31,7 @@ while read line; do
 	counter=$((counter+1))
 
 	if [[ $counter == $TARGET ]]; then
-		printf "\n\n\n**********\n\nDownload completed\n\n**********"
+		printf "\n\n\n********************\n\nDownload completed\n\n********************\n\n"
 	fi
 done < $1
 
