@@ -17,5 +17,5 @@ for file in tsv_files:
 
 	dfs.append(df)
 
-master_df = pd.concat(dfs)
+
 
