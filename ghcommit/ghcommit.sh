@@ -22,13 +22,16 @@ function ghcommit() {
 git add .
 
 # check to see if we already have entered a commit message
-if [ ${#} -gt 0 ]; then
-	read -p "Enter commit message: " msg
-	git commit -m msg
+#if [ ${#} -gt 0 ]; then
+#	read -p "Enter commit message: " msg
+#	git commit -m $msg
+#
+#else 
+#	git commit -m "$@"
+#fi
 
-else 
-	git commit -m "$@"
-fi
+read -p "Enter commit message: " msg
+git commit -m $msg
 
 git push
 

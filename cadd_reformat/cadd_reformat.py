@@ -31,6 +31,8 @@ for file in files:
 
 	df["ALT"] = df["ALT"].str[1:]
 
+	renamed_df = df.rename(columns={"#Chrom":"#CHROM"})
+
 	#rename so we don't overwrite original data
 	new_name = re.sub(".tsv", '', file)
 
@@ -39,6 +41,6 @@ for file in files:
 	print(f"Saving {new_name}")
 
 	# save new file as another .tsv file
-	df.to_csv(new_name, index=False, sep='\t')
+	renamed_df.to_csv(new_name, index=False, sep='\t')
 
 print('Done!')
