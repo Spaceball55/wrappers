@@ -19,7 +19,9 @@
 
 function ghcommit() {
 
-git add .
+cwd=${pwd}
+
+git add $cwd
 
 # check to see if we already have entered a commit message
 #if [ ${#} -gt 0 ]; then
@@ -30,8 +32,12 @@ git add .
 #	git commit -m "$@"
 #fi
 
-read -p "Enter commit message: " msg
-git commit -m $msg
+#read -p "Enter commit message: " msg
+
+echo "Enter commit message:"
+read -r $msg
+
+git commit -m "$msg"
 
 git push
 
