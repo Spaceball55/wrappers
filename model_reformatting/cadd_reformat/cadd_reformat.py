@@ -15,19 +15,31 @@
 
 import sys
 import pandas as pd
+import os
 
 # read the file that you want to edit
-files = sys.argv[1]
+file = sys.argv[1]
 
 print(f"Working on: {file}")
 df = pd.read_csv(file, sep='\t')
 
+
 #strip "REF" column
-df["REF"] = df["REF"].str[1:]
+df["Ref"] = df["Ref"].str[1:]
 
-df["ALT"] = df["ALT"].str[1:]
+df["Alt"] = df["Alt"].str[1:]
 
-renamed_df = df.rename(columns={"#Chrom":"#CHROM"})
+renamed_df = df.rename(columns={"#Chrom":"#CHROM","Pos":"Position", "Ref":"REF", "Alt":"ALT"})
+
+# save into the results directory
+DIR = "reformmated_outputs"
+try:
+	os.chdir(DIR)
+except:
+	#if the results directory doesn't exist, make it
+	print('Creating reformmated_outputs/')
+	os.mkdir(DIR)
+	os.chdir(DIR)
 
 #rename so we don't overwrite original data
 new_name =  "edited_" + file

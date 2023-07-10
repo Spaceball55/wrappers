@@ -16,6 +16,7 @@
 import sys
 import pandas as pd
 import re
+import os
 
 # read the file that you want to edit
 file = sys.argv[1]
@@ -29,6 +30,18 @@ df = pd.read_csv(file, sep='\t')
 df["REF"] = df["REF"].str[1:]
 
 df["ALT"] = df["ALT"].str[1:]
+
+df.rename(columns={"POS":"Position"}, inplace=True)
+
+# save into the results directory
+DIR = "reformmated_outputs"
+try:
+	os.chdir(DIR)
+except:
+	#if the results directory doesn't exist, make it
+	print('Creating reformmated_outputs/')
+	os.mkdir(DIR)
+	os.chdir(DIR)
 
 #rename so we don't overwrite original data
 new_name =  "edited_" + file

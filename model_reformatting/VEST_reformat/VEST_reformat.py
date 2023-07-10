@@ -17,7 +17,7 @@
 
 import pandas as pd
 import sys
-import re
+import os
 
 #get the first argument passed after calling this script
 inputfile = sys.argv[1]
@@ -30,8 +30,21 @@ vest0['Alternate base(s)'] = vest0['Alternate base(s)'].str.replace('-', "")
 
 vest0["Chromosome"] = vest0["Chromosome"].str[3:]
 
+# make the position 0-based
+vest0["Position"] = vest0["Position"] - 1
+
 #rename the columns to keep VEST4 output consistent with the rest
 renamed = vest0.rename(columns={"Reference base(s)": "REF", "Alternate base(s)":"ALT", "Chromosome":"#CHROM"})
+
+# save into the results directory
+DIR = "reformmated_outputs"
+try:
+	os.chdir(DIR)
+except:
+	#if the results directory doesn't exist, make it
+	print('Creating reformmated_outputs/')
+	os.mkdir(DIR)
+	os.chdir(DIR)
 
 new_name = "edited_" + inputfile
 

@@ -36,6 +36,8 @@ print(tsv_files)
 
 first = tsv_files.pop(0)
 
+print(f"first file is {first}")
+
 origin_df = pd.read_csv(first, sep="\t")
 
 for file in tsv_files:
@@ -44,6 +46,10 @@ for file in tsv_files:
 
 	#get an individual df
 	this_df = pd.read_csv(file, sep="\t")
+
+	this_df["#CHROM"] = this_df["#CHROM"].astype(object)
+
+	print(this_df.dtypes)
 
 	#create a master df that merges the original df and another df
 	master_df = pd.merge(origin_df, this_df, on=["#CHROM", "Position", "REF", "ALT"], how="outer")

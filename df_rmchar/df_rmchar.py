@@ -15,7 +15,6 @@
 
 import sys
 import pandas as pd
-import re
 
 # read the file that you want to edit
 files = sys.argv[1:]
@@ -31,10 +30,11 @@ for file in files:
 
 	df["ALT"] = df["ALT"].str[1:]
 
-	#rename so we don't overwrite original data
-	new_name = re.sub(".tsv", '', file)
+	df["Position"] = df["Position"].astype(pd.Int64Dtype())
 
-	new_name =  "edited_" + new_name + ".tsv"
+	#rename so we don't overwrite original data
+
+	new_name = "edited_" + file
 
 	print(f"Saving {new_name}")
 
