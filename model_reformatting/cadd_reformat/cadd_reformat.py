@@ -29,7 +29,7 @@ df["Ref"] = df["Ref"].str[1:]
 
 df["Alt"] = df["Alt"].str[1:]
 
-renamed_df = df.rename(columns={"#Chrom":"#CHROM","Pos":"Position", "Ref":"REF", "Alt":"ALT"})
+renamed_df = df.rename(columns={"#Chrom":"#CHROM","Pos":"Position", "Ref":"REF", "Alt":"ALT", "RawScore": "CADD_Raw"})
 
 # save into the results directory
 DIR = "reformmated_outputs"

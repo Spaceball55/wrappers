@@ -25,7 +25,7 @@ print(file)
 print(f"Working on: {file}")
 df = pd.read_csv(file, sep='\t')
 
-df_renamed = df.rename(columns={"Chr":"#CHROM","Pos":"Position", "Wildtype":"REF", "Mutant":"ALT"})
+df_renamed = df.rename(columns={"Chr":"#CHROM","Pos":"Position", "Wildtype":"REF", "Mutant":"ALT", "FATHMM-indel Score": "FATHMM-Indel", "Predicted Class": "FATHMM_Predicted Class"})
 
 #strip "REF" column
 df_renamed["REF"] = df_renamed["REF"].str[1:]

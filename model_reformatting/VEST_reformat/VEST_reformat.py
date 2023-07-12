@@ -34,7 +34,7 @@ vest0["Chromosome"] = vest0["Chromosome"].str[3:]
 vest0["Position"] = vest0["Position"] - 1
 
 #rename the columns to keep VEST4 output consistent with the rest
-renamed = vest0.rename(columns={"Reference base(s)": "REF", "Alternate base(s)":"ALT", "Chromosome":"#CHROM"})
+renamed = vest0.rename(columns={"Reference base(s)": "REF", "Alternate base(s)":"ALT", "Chromosome":"#CHROM", "VEST score (inframe indels)": "VEST-Indel", "HUGO symbol":"GENE"})
 
 # save into the results directory
 DIR = "reformmated_outputs"

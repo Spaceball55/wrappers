@@ -31,7 +31,7 @@ df["REF"] = df["REF"].str[1:]
 
 df["ALT"] = df["ALT"].str[1:]
 
-df.rename(columns={"POS":"Position"}, inplace=True)
+df.rename(columns={"POS":"Position", "MetaRNN-indel_score": "MetaRNN-Indel"}, inplace=True)
 
 # save into the results directory
 DIR = "reformmated_outputs"
