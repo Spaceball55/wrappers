@@ -34,12 +34,12 @@ df["ALT"] = df["ALT"].str[1:]
 df.rename(columns={"POS":"Position", "MetaRNN-indel_score": "MetaRNN-Indel"}, inplace=True)
 
 # save into the results directory
-DIR = "reformmated_outputs"
+DIR = "reformatted_outputs"
 try:
 	os.chdir(DIR)
 except:
 	#if the results directory doesn't exist, make it
-	print('Creating reformmated_outputs/')
+	print('Creating reformatted_outputs/')
 	os.mkdir(DIR)
 	os.chdir(DIR)
 

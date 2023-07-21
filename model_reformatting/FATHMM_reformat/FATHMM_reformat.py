@@ -33,12 +33,12 @@ df_renamed["REF"] = df_renamed["REF"].str[1:]
 df_renamed["ALT"] = df_renamed["ALT"].str[1:]
 
 # save into the results directory
-DIR = "reformmated_outputs"
+DIR = "reformatted_outputs"
 try:
 	os.chdir(DIR)
 except:
 	#if the results directory doesn't exist, make it
-	print('Creating reformmated_outputs/')
+	print('Creating reformatted_outputs/')
 	os.mkdir(DIR)
 	os.chdir(DIR)
 

@@ -37,12 +37,12 @@ vest0["Position"] = vest0["Position"] - 1
 renamed = vest0.rename(columns={"Reference base(s)": "REF", "Alternate base(s)":"ALT", "Chromosome":"#CHROM", "VEST score (inframe indels)": "VEST-Indel", "HUGO symbol":"GENE"})
 
 # save into the results directory
-DIR = "reformmated_outputs"
+DIR = "reformatted_outputs"
 try:
 	os.chdir(DIR)
 except:
 	#if the results directory doesn't exist, make it
-	print('Creating reformmated_outputs/')
+	print('Creating reformatted_outputs/')
 	os.mkdir(DIR)
 	os.chdir(DIR)
 
