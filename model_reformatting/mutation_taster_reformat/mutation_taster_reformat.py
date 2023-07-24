@@ -23,7 +23,7 @@ print(f"Working on {file}")
 
 df = pd.read_csv(file, sep="\t")
 
-renamed_col = df.rename(columns={"Chr":"#CHROM", "Ref":"REF", "Alt":"ALT"})
+renamed_col = df.rename(columns={"Chr":"#CHROM", "Ref":"REF", "Alt":"ALT", "Prediction": "Mutation_Taster_Prediction"})
 
 #get rid of weird last line
 renamed_col.drop(renamed_col[renamed_col["#CHROM"] == "############## MutationTaster predictions were generated using data from Ensembl 102 ##############"].index, inplace=True)
@@ -42,12 +42,12 @@ renamed_col["Position"] = renamed_col["Position"] - 1
 renamed_col["#CHROM"] = renamed_col["#CHROM"].replace("23", "X")
 
 # save into the results directory
-DIR = "reformmated_outputs"
+DIR = "reformatted_outputs"
 try:
 	os.chdir(DIR)
 except:
 	#if the results directory doesn't exist, make it
-	print('Creating reformmated_outputs/')
+	print('Creating reformatted_outputs/')
 	os.mkdir(DIR)
 	os.chdir(DIR)
 
