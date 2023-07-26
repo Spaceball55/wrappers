@@ -1,1 +1,0 @@
-../ghcommit/ghcommit.sh
