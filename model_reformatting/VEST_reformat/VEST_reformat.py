@@ -30,8 +30,8 @@ vest0['Alternate base(s)'] = vest0['Alternate base(s)'].str.replace('-', "")
 
 vest0["Chromosome"] = vest0["Chromosome"].str[3:]
 
-# make the position 0-based
-vest0["Position"] = vest0["Position"] - 1
+# make the position 0-based ** no longer necessary
+#vest0["Position"] = vest0["Position"] - 1
 
 #rename the columns to keep VEST4 output consistent with the rest
 renamed = vest0.rename(columns={"Reference base(s)": "REF", "Alternate base(s)":"ALT", "Chromosome":"#CHROM", "VEST score (inframe indels)": "VEST-Indel", "HUGO symbol":"GENE"})

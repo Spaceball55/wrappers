@@ -26,12 +26,15 @@ print(file)
 print(f"Working on: {file}")
 df = pd.read_csv(file, sep='\t')
 
-#strip "REF" column
+#strip "REF" and "ALT" column to make 1-based
 df["REF"] = df["REF"].str[1:]
 
 df["ALT"] = df["ALT"].str[1:]
 
 df.rename(columns={"POS":"Position", "MetaRNN-indel_score": "MetaRNN-Indel"}, inplace=True)
+
+#Make position 1-based
+df["Position"] = df["Position"] + 1
 
 # save into the results directory
 DIR = "reformatted_outputs"

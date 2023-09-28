@@ -27,10 +27,13 @@ df = pd.read_csv(file, sep='\t')
 
 df_renamed = df.rename(columns={"Chr":"#CHROM","Pos":"Position", "Wildtype":"REF", "Mutant":"ALT", "FATHMM-indel Score": "FATHMM-Indel", "Predicted Class": "FATHMM_Predicted Class"})
 
-#strip "REF" column
+#strip "REF" and "ALT" column to make 1-based
 df_renamed["REF"] = df_renamed["REF"].str[1:]
 
 df_renamed["ALT"] = df_renamed["ALT"].str[1:]
+
+#make position 1-based
+df_renamed["Position"] = df_renamed["Position"] + 1
 
 # save into the results directory
 DIR = "reformatted_outputs"

@@ -24,12 +24,15 @@ print(f"Working on: {file}")
 df = pd.read_csv(file, sep='\t')
 
 
-#strip "REF" column
+#strip "REF"and "ALT" column to make 1-based
 df["Ref"] = df["Ref"].str[1:]
 
 df["Alt"] = df["Alt"].str[1:]
 
 renamed_df = df.rename(columns={"#Chrom":"#CHROM","Pos":"Position", "Ref":"REF", "Alt":"ALT", "RawScore": "CADD_Raw"})
+
+#Make position 1-based
+df["Position"] = df["Position"] + 1
 
 # save into the results directory
 DIR = "reformatted_outputs"

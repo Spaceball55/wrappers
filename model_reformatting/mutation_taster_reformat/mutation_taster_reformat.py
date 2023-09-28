@@ -35,8 +35,8 @@ renamed_col['#CHROM'] = renamed_col['#CHROM'].apply(lambda x: str(x))
 
 renamed_col["Position"] = renamed_col["Position"].astype(pd.Int64Dtype())
 
-# make the position 0-based
-renamed_col["Position"] = renamed_col["Position"] - 1
+# make the position 0-based deprecated, no longer necessary
+#renamed_col["Position"] = renamed_col["Position"] - 1
 
 # change the 23rd chromosome to chromosome X
 renamed_col["#CHROM"] = renamed_col["#CHROM"].replace("23", "X")
