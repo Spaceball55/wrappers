@@ -7,6 +7,10 @@
 # gg_auc_pb
 # uses ggplot to generate a figure of the AUC and the ratio of PLP/BLB for each model tested
 
+#Usage:
+# gg_auc_pb(data)
+#NOTE: the function returns a ggplot object, to display the plot, use the print function! E.g. print(plot)
+
 #Arguments:
 # data (dataframe): the dataframe only with the model, AUC, and PLP/BLB - each model recorded only once
 # fig_title (string): the title of the figure
@@ -31,9 +35,3 @@ gg_auc_pb <- function(data, fig_title="AUCs and PLP/BLB"){
   
   return(auc_pb_plot)
 }
-
-IRD_auc <- read_xlsx('data/IRD_AUC_only.xlsx')
-
-test <- gg_auc_pb(IRD_auc)
-
-print(test)
